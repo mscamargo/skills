@@ -28,7 +28,7 @@ npx skills add mscamargo/skills
 **Local development** (symlinks each skill into `~/.claude/skills`, so edits apply immediately):
 
 ```
-scripts/link-local.sh
+bin/link-local
 ```
 
 ## Layout
@@ -44,11 +44,12 @@ skills/<name>/
   assets/            # templates, data
 evals/<case>/        # eval cases for `claude plugin eval`
 templates/SKILL.md   # starting point for new skills
+bin/                 # repo tooling: new-skill, link-local
 ```
 
 ## Adding a skill
 
-1. `scripts/new-skill.sh my-skill` creates `skills/my-skill/SKILL.md` from the template.
+1. `bin/new-skill my-skill` creates `skills/my-skill/SKILL.md` from the template.
 2. Write the `description` carefully. It's the only part the agent sees before deciding
    to load the skill, so say what the skill does **and** when to use it.
 3. Keep `SKILL.md` under ~500 lines; move detail into `references/`.

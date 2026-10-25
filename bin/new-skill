@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Scaffold a new skill: scripts/new-skill.sh <skill-name>
+# Scaffold a new skill: bin/new-skill <skill-name>
 set -euo pipefail
 
 name="${1:?usage: $0 <skill-name>}"
