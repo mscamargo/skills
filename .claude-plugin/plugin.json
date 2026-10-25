@@ -1,0 +1,11 @@
+{
+  "name": "mscamargo-skills",
+  "version": "0.1.0",
+  "description": "Personal agent skills by Marcos S. Camargo.",
+  "author": {
+    "name": "Marcos S. Camargo",
+    "email": "mscamargo.dev@gmail.com"
+  },
+  "repository": "https://github.com/mscamargo/skills",
+  "license": "MIT"
+}

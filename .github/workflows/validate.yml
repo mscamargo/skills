@@ -1,0 +1,31 @@
+name: validate
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  skills:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: astral-sh/setup-uv@v6
+
+      - name: Validate skills against the Agent Skills spec
+        run: |
+          status=0
+          for dir in skills/*/; do
+            uvx --from "git+https://github.com/agentskills/agentskills#subdirectory=skills-ref" \
+              skills-ref validate "$dir" || status=1
+          done
+          exit $status
+
+      - name: Check plugin.json and marketplace.json versions match
+        run: |
+          plugin=$(jq -r .version .claude-plugin/plugin.json)
+          market=$(jq -r '.plugins[] | select(.name == "mscamargo-skills") | .version' .claude-plugin/marketplace.json)
+          if [ "$plugin" != "$market" ]; then
+            echo "::error::plugin.json is $plugin but marketplace.json is $market"
+            exit 1
+          fi

@@ -1,0 +1,16 @@
+{
+  "name": "mscamargo",
+  "description": "Marcos S. Camargo's personal agent skills.",
+  "owner": {
+    "name": "Marcos S. Camargo",
+    "email": "mscamargo.dev@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "mscamargo-skills",
+      "source": "./",
+      "version": "0.1.0",
+      "description": "Personal agent skills by Marcos S. Camargo."
+    }
+  ]
+}
